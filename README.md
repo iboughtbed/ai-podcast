@@ -18,11 +18,14 @@ This is an automated AI podcast website build with everything new in Next.js 14.
 
 ## Features to be implemented
 
-- [ ] Authentication with **NextAuth**
+<!-- - [ ] Authentication with **NextAuth** -->
+
 - [x] ORM using **Drizzle ORM**
 - [x] PostgreSQL Database on **Supabase**
 - [x] Redis and QStash on **Upstash**
 - [x] File uploads with **uploadthing**
+- [x] Message queues handlers and verified access with **QStash**
+- [x] Script and branch generation with **ChatGPT**
 - [ ] Validation with **Zod**
 
 ## Running Locally
