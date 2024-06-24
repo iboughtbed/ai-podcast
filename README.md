@@ -1,29 +1,62 @@
-# Create T3 App
+# AI Podcast
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+This is an automated AI podcast website build with everything new in Next.js 14. It is bootstrapped with `create-t3-app`.
 
-## What's next? How do I make an app with this?
+[![AI Podcast](./public/og.ong)](https://iboughtbed-ai-podcast.vercel.app/)
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+> **Warning**
+> This project is still in development and is not ready for production use.
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## Tech Stack
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+- **Framework:** [Next.js](https://nextjs.org)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com)
+- **User Management:** [NextAuth](https://next-auth.js.org)
+- **ORM:** [Drizzle ORM](https://orm.drizzle.team)
+- **UI Components:** [shadcn/ui](https://ui.shadcn.com)
+- **File Uploads:** [uploadthing](https://uploadthing.com)
 
-## Learn More
+## Features to be implemented
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+- [ ] Authentication with **NextAuth**
+- [x] ORM using **Drizzle ORM**
+- [x] PostgreSQL Database on **Supabase**
+- [x] Redis and QStash on **Upstash**
+- [x] File uploads with **uploadthing**
+- [ ] Validation with **Zod**
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+## Running Locally
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+1. Clone the repository
 
-## How do I deploy this?
+   ```bash
+   git clone https://github.com/iboughtbed/ai-podcast.git
+   ```
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+2. Install dependencies using pnpm
+
+   ```bash
+   pnpm install
+   ```
+
+3. Copy the `.env.example` to `.env` and update the variables.
+
+   ```bash
+   cp .env.example .env
+   ```
+
+4. Start the development server
+
+   ```bash
+   pnpm run dev
+   ```
+
+5. Push the database schema
+
+   ```bash
+   pnpm run db:push
+   ```
+
+## License
+
+Licensed under the MIT License. Check the [LICENSE](./LICENSE.md) file for details.
