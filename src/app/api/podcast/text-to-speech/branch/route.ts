@@ -1,29 +1,27 @@
 import { verifySignatureAppRouter } from "@upstash/qstash/nextjs";
 
 import { queue } from "~/lib/qstash";
+import { redis } from "~/lib/redis";
 import { absoluteUrl } from "~/lib/utils";
+import type { PodcastBranch } from "~/types";
 
 async function handler() {
   try {
-    // fetching latest news
-    await queue.enqueueJSON({
-      url: absoluteUrl("/api/podcast/fetch-feed"),
-    });
+    const branches = await redis.get<PodcastBranch[]>("test-branches");
 
-    // script generation
-    await queue.enqueueJSON({
-      url: absoluteUrl("/api/podcast/generate-script"),
-    });
+    if (!branches) {
+      return new Response("Branches are missing", { status: 500 });
+    }
 
-    // branch generation
-    await queue.enqueueJSON({
-      url: absoluteUrl("/api/podcast/generate-branches"),
-    });
-
-    // text-to-speech
-    // await queue.enqueueJSON({
-    //   url: absoluteUrl("/"),
-    // });
+    for (const [index, branch] of branches.entries()) {
+      await queue.enqueueJSON({
+        url: absoluteUrl(`/api/podcast/text-to-speech/branch/${index}`),
+        body: {
+          ...branch,
+          index,
+        },
+      });
+    }
 
     return new Response(null, { status: 200 });
   } catch (error) {

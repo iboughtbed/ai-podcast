@@ -2,7 +2,9 @@ import { verifySignatureAppRouter } from "@upstash/qstash/nextjs";
 
 import { GENERATE_SCRIPT_SYSTEM_PROMPT } from "~/lib/constants";
 import { openai } from "~/lib/openai";
+import { queue } from "~/lib/qstash";
 import { redis } from "~/lib/redis";
+import { absoluteUrl } from "~/lib/utils";
 import type { FeedItem } from "~/types";
 
 async function handler() {
@@ -34,6 +36,9 @@ async function handler() {
     }
 
     await redis.set("generated-script", choice.message.content);
+    await queue.enqueueJSON({
+      url: absoluteUrl("/api/podcast/text-to-speech/base-script"),
+    });
 
     return new Response(null, { status: 200 });
   } catch (error) {

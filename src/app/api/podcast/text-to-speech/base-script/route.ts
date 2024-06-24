@@ -1,29 +1,27 @@
 import { verifySignatureAppRouter } from "@upstash/qstash/nextjs";
 
 import { queue } from "~/lib/qstash";
+import { redis } from "~/lib/redis";
 import { absoluteUrl } from "~/lib/utils";
+import type { PodcastScript } from "~/types";
 
 async function handler() {
   try {
-    // fetching latest news
-    await queue.enqueueJSON({
-      url: absoluteUrl("/api/podcast/fetch-feed"),
-    });
+    const script = await redis.get<PodcastScript>("test-script");
 
-    // script generation
-    await queue.enqueueJSON({
-      url: absoluteUrl("/api/podcast/generate-script"),
-    });
+    if (!script) {
+      return new Response("Script was not generated", { status: 500 });
+    }
 
-    // branch generation
-    await queue.enqueueJSON({
-      url: absoluteUrl("/api/podcast/generate-branches"),
-    });
-
-    // text-to-speech
-    // await queue.enqueueJSON({
-    //   url: absoluteUrl("/"),
-    // });
+    for (const [index, segment] of script.entries()) {
+      await queue.enqueueJSON({
+        url: absoluteUrl(`/api/podcast/text-to-speech/base-script/${index}`),
+        body: {
+          ...segment,
+          index,
+        },
+      });
+    }
 
     return new Response(null, { status: 200 });
   } catch (error) {

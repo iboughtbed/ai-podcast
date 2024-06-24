@@ -11,7 +11,15 @@ export type Feed = {
   items: FeedItem[];
 };
 
-export type PodcastScript = {
+export type PodcastSegment = {
   name: string;
   text: string;
-}[];
+};
+
+export type PodcastScript = PodcastSegment[];
+
+export type PodcastBranch = {
+  branch: number;
+  dialogue: PodcastSegment[];
+  title: string;
+};
