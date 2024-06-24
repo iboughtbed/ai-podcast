@@ -9,6 +9,9 @@ async function handler() {
     console.log("Here 9");
 
     const response = await fetch(env.DISCOVER_FEED_URL, {
+      headers: {
+        Accept: "application/json",
+      },
       next: {
         revalidate: 60 * 60 * 12, // 12 hours
       },
