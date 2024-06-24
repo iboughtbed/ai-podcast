@@ -9,6 +9,7 @@ async function handler() {
     console.log("Here 9");
 
     const response = await fetch(env.DISCOVER_FEED_URL, {
+      credentials: "include",
       headers: {
         Accept: "application/json",
       },
