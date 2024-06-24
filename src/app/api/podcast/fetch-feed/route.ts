@@ -15,6 +15,8 @@ async function handler() {
     });
 
     console.log("Here 17");
+    console.log(response.body);
+    console.log(await response.json());
 
     const feed = (await response.json()) as Feed;
 
