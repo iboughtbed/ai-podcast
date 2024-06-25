@@ -1,6 +1,7 @@
 import { verifySignatureAppRouter } from "@upstash/qstash/nextjs";
 
 import { queue } from "~/lib/qstash";
+import { redis } from "~/lib/redis";
 import { absoluteUrl } from "~/lib/utils";
 
 async function handler() {
@@ -24,6 +25,9 @@ async function handler() {
     // await queue.enqueueJSON({
     //   url: absoluteUrl("/"),
     // });
+
+    // temprorary workaround for data fetching
+    await redis.incr("generation-number");
 
     return new Response(null, { status: 200 });
   } catch (error) {

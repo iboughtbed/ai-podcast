@@ -15,30 +15,43 @@ async function handler() {
       return new Response("Feed is missing", { status: 500 });
     }
 
-    const completion = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo-0125",
-      messages: [
-        {
-          role: "system",
-          content: GENERATE_SCRIPT_SYSTEM_PROMPT,
-        },
-        {
-          role: "user",
-          content: JSON.stringify(feed),
-        },
-      ],
-    });
+    const generation = await redis.get<number>("generation-number");
 
-    const choice = completion.choices[0];
-
-    if (!choice?.message.content) {
-      return new Response("Something went wrong", { status: 500 });
+    if (generation === null) {
+      return new Response("Generation number is missing", { status: 500 });
     }
 
-    await redis.set("generated-script", choice.message.content);
-    await queue.enqueueJSON({
-      url: absoluteUrl("/api/podcast/text-to-speech/base-script"),
-    });
+    console.log({ feed });
+    const startIndex = generation * 4;
+    console.log({ startIndex });
+    const items = feed.slice(startIndex, startIndex + 4);
+
+    console.log({ items });
+
+    // const completion = await openai.chat.completions.create({
+    //   model: "gpt-3.5-turbo-0125",
+    //   messages: [
+    //     {
+    //       role: "system",
+    //       content: GENERATE_SCRIPT_SYSTEM_PROMPT,
+    //     },
+    //     {
+    //       role: "user",
+    //       content: JSON.stringify(items),
+    //     },
+    //   ],
+    // });
+
+    // const choice = completion.choices[0];
+
+    // if (!choice?.message.content) {
+    //   return new Response("Something went wrong", { status: 500 });
+    // }
+
+    // await redis.set("generated-script", choice.message.content);
+    // await queue.enqueueJSON({
+    //   url: absoluteUrl("/api/podcast/text-to-speech/base-script"),
+    // });
 
     return new Response(null, { status: 200 });
   } catch (error) {
