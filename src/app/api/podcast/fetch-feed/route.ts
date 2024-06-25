@@ -1,39 +1,42 @@
 import { verifySignatureAppRouter } from "@upstash/qstash/nextjs";
 
-import { env } from "~/env";
-import { redis } from "~/lib/redis";
-import type { Feed } from "~/types";
+// import { env } from "~/env";
+// import { redis } from "~/lib/redis";
+// import type { Feed } from "~/types";
+
+// Temprory workaround for the data fetching
+// The data is already stored in the Redis database
+// Perplexity does not provide API for Discover Feed
 
 async function handler() {
   try {
-    console.log("Here 9");
+    // const feed: Feed = { items: [] };
 
-    const response = await fetch(env.DISCOVER_FEED_URL, {
-      credentials: "include",
-      headers: {
-        Accept: "application/json",
-      },
-      next: {
-        revalidate: 60 * 60 * 12, // 12 hours
-      },
-    });
+    // for (let i = 0; i < 5; i++) {
+    //   const offset = i * 20;
 
-    console.log("Here 17");
-    console.log(response.body);
-    console.log(await response.json());
+    //   const response = await fetch(
+    //     `${env.DISCOVER_FEED_URL}&offset=${offset}`,
+    //     {
+    //       headers: {
+    //         Accept: "application/json",
+    //       },
+    //       next: {
+    //         revalidate: 60 * 60 * 12, // 12 hours
+    //       },
+    //     },
+    //   );
 
-    const feed = (await response.json()) as Feed;
+    //   const json = (await response.json()) as Feed;
+    //   feed.items.push(...json.items);
+    // }
 
-    console.log("Here 21");
+    // const items = feed.items.map((item) => ({
+    //   title: item.title,
+    //   description: item.description,
+    // }));
 
-    const items = feed.items.map((item) => ({
-      title: item.title,
-      description: item.description,
-    }));
-
-    console.log("Here 28");
-
-    await redis.json.set("feed-items", "$", items);
+    // await redis.json.set("feed-items", "$", items);
 
     return new Response(null, { status: 200 });
   } catch (error) {
