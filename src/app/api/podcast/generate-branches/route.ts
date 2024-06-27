@@ -37,7 +37,7 @@ async function handler() {
       return new Response("Something went wrong", { status: 500 });
     }
 
-    await redis.set("generated-branches", choice.message.content);
+    await redis.json.set("generated-branches", "$", choice.message.content);
     await queue.enqueueJSON({
       url: absoluteUrl("/api/podcast/text-to-speech/branch"),
     });
