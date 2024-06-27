@@ -7,7 +7,7 @@ import type { PodcastBranch } from "~/types";
 
 async function handler() {
   try {
-    const branches = await redis.get<PodcastBranch[]>("test-branches");
+    const branches = await redis.get<PodcastBranch[]>("generated-branches");
 
     if (!branches) {
       return new Response("Branches are missing", { status: 500 });

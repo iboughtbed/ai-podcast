@@ -7,7 +7,7 @@ import type { PodcastScript } from "~/types";
 
 async function handler() {
   try {
-    const script = await redis.get<PodcastScript>("test-script");
+    const script = await redis.get<PodcastScript>("generated-script");
 
     if (!script) {
       return new Response("Script was not generated", { status: 500 });
