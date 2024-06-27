@@ -7,7 +7,7 @@ import { redis } from "~/lib/redis";
 import { absoluteUrl } from "~/lib/utils";
 import type { PodcastScript } from "~/types";
 
-export const maxDuraiton = 20;
+export const maxDuration = 20;
 
 async function handler() {
   try {
