@@ -7,6 +7,8 @@ import { redis } from "~/lib/redis";
 import { absoluteUrl } from "~/lib/utils";
 import type { FeedItem } from "~/types";
 
+export const maxDuraiton = 20;
+
 async function handler() {
   try {
     const feed = await redis.json.get<FeedItem[]>("feed-items");
