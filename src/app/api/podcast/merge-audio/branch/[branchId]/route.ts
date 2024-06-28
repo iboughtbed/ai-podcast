@@ -2,7 +2,10 @@ import { verifySignatureAppRouter } from "@upstash/qstash/nextjs";
 
 import { redis } from "~/lib/redis";
 import { generateId } from "~/lib/utils";
+import { db } from "~/server/db";
+import { branches } from "~/server/db/schema";
 import { utapi } from "~/server/uploadthing";
+import type { PodcastBranch } from "~/types";
 
 export const maxDuration = 60;
 
@@ -12,6 +15,19 @@ async function handler(request: Request) {
 
     if (!json) {
       return new Response("Body is missing", { status: 500 });
+    }
+
+    const generatedBranches =
+      await redis.json.get<PodcastBranch[]>("generated-branches");
+
+    if (!generatedBranches) {
+      return new Response("Branches were not generated", { status: 500 });
+    }
+
+    const branch = generatedBranches[json.branchId];
+
+    if (!branch) {
+      return new Response("Branch is missing", { status: 500 });
     }
 
     const segments = await redis.lrange<number>(
@@ -62,6 +78,12 @@ async function handler(request: Request) {
     await redis.json.set(`branch:${json.branchId}:final-audio`, "$", {
       audio: data.url,
       key: data.key,
+    });
+
+    await db.insert(branches).values({
+      branchScript: branch.dialogue,
+      audio: data.url,
+      audioKey: data.key,
     });
 
     return new Response(null, { status: 200 });

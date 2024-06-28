@@ -23,6 +23,10 @@ async function handler() {
       });
     }
 
+    await queue.enqueueJSON({
+      url: absoluteUrl("/api/podcast/merge-audio/base-script"),
+    });
+
     return new Response(null, { status: 200 });
   } catch (error) {
     console.error(error);

@@ -11,7 +11,7 @@ export const maxDuration = 20;
 
 async function handler() {
   try {
-    const generatedScript = await redis.get<PodcastScript>("generated-script");
+    const generatedScript = await redis.json.get<PodcastScript>("generated-script");
 
     if (!generatedScript) {
       return new Response("Podcast script is missing", { status: 500 });

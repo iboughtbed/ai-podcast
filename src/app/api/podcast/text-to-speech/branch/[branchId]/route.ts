@@ -25,6 +25,13 @@ async function handler(request: Request) {
       });
     }
 
+    await queue.enqueueJSON({
+      url: absoluteUrl(`/api/podcast/merge-audio/branch/${branch.branch}`),
+      body: {
+        branchId: branch.branch,
+      },
+    });
+
     return new Response(null, { status: 200 });
   } catch (error) {
     console.error(error);

@@ -2,12 +2,22 @@ import { verifySignatureAppRouter } from "@upstash/qstash/nextjs";
 
 import { redis } from "~/lib/redis";
 import { generateId } from "~/lib/utils";
+import { db } from "~/server/db";
+import { episodes } from "~/server/db/schema";
 import { utapi } from "~/server/uploadthing";
+import type { PodcastScript } from "~/types";
 
 export const maxDuration = 60;
 
 async function handler() {
   try {
+    const generatedScript =
+      await redis.json.get<PodcastScript>("generated-script");
+
+    if (!generatedScript) {
+      return new Response("Script was not generated", { status: 500 });
+    }
+
     const segments = await redis.lrange<number>("base-script:segments", 0, -1);
     const buffersWithIdx: { index: number; buffer: Buffer }[] = [];
 
@@ -52,6 +62,12 @@ async function handler() {
     await redis.json.set("base-script:final-audio", "$", {
       audio: data.url,
       key: data.key,
+    });
+
+    await db.insert(episodes).values({
+      baseScript: generatedScript,
+      audio: data.url,
+      audioKey: data.key,
     });
 
     return new Response(null, { status: 200 });
