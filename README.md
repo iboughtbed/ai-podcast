@@ -26,7 +26,10 @@ This is an automated AI podcast website build with everything new in Next.js 14.
 - [x] File uploads with **uploadthing**
 - [x] Message queues handlers and verified access with **QStash**
 - [x] Script and branch generation with **ChatGPT**
-- [ ] Validation with **Zod**
+- [x] Text-to-speech with **ElevenLabs**
+- [x] Merging segment audios into final audio
+- [ ] Analyzing books and creating podcasts based on it
+- [ ] Add section for trending AI tools (for collaborations)
 
 ## Running Locally
 

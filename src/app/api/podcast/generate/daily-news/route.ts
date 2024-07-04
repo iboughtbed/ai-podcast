@@ -20,11 +20,6 @@ async function handler() {
       url: absoluteUrl("/api/podcast/generate-branches"),
     });
 
-    // text-to-speech
-    // await queue.enqueueJSON({
-    //   url: absoluteUrl("/"),
-    // });
-
     return new Response(null, { status: 200 });
   } catch (error) {
     console.error(error);

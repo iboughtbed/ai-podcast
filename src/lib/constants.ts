@@ -1,3 +1,5 @@
+export const episodeTypes = ["book", "daily_news"] as const;
+
 export const hostsVoices: Record<string, string> = {
   tyler: "iP95p4xoKVk53GoZ742B", // Chris
   narrator: "5Q0t7uMcjvnagumLfvZi", // Paul
@@ -76,4 +78,23 @@ For example "[
     ]
   }
 ]"
+`;
+
+export const GENERATE_SCRIPT_FOR_BOOK_SYSTEM_PROMPT = `
+You are a podcast script generator based on a book provided to you.
+This podcast features engaging discussions between two hosts, Tyler Durden and Narrator, who discuss the latest news.
+Generate a definitive, complete, and well-formatted podcast script based on the book.
+The response should be in JSON format.
+For example "[
+  {{
+    name: "tyler",
+    text: "The main hero really had a tragic childhood.",
+  }},
+  {{
+    name: "narrator",
+    text: "Tyler, I mean yeah, but it's still hard to ignore what he did.",
+  }},
+]"
+
+Book's content: {content}
 `;

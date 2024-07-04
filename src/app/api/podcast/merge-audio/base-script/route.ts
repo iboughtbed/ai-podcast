@@ -65,6 +65,8 @@ async function handler() {
     });
 
     await db.insert(episodes).values({
+      title: "Episode",
+      episodeType: "daily_news",
       baseScript: generatedScript,
       audio: data.url,
       audioKey: data.key,
