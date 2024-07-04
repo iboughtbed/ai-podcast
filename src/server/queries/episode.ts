@@ -21,9 +21,6 @@ export async function getEpisode(id: string) {
 
 export async function getEpisodes() {
   const episodes = await db.query.episodes.findMany({
-    // with: {
-    //   branches: true,
-    // },
     orderBy: (model, { desc }) => [desc(model.createdAt)],
   });
 

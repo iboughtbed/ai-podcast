@@ -5,8 +5,6 @@ import { Episodes } from "./_components/episodes";
 export default async function EpisodesPage() {
   const { episodes } = await getEpisodes();
 
-  console.log({ episodes });
-
   return (
     <div className="container max-w-3xl">
       <div className="flex flex-col">
