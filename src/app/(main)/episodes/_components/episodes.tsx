@@ -11,15 +11,6 @@ interface EpisodesProps {
     audio: string;
     audioKey: string;
     createdAt: Date;
-    branches: {
-      id: string;
-      title: string;
-      audio: string;
-      audioKey: string;
-      createdAt: Date;
-      episodeId: string;
-      branchScript: PodcastSegment[];
-    }[];
   }[];
 }
 
