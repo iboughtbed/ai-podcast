@@ -5,9 +5,6 @@ import { db } from "~/server/db";
 export async function getEpisode(id: string) {
   const episode = await db.query.episodes.findFirst({
     where: (model, { eq }) => eq(model.id, id),
-    with: {
-      branches: true,
-    },
     columns: {
       title: true,
       baseScript: true,

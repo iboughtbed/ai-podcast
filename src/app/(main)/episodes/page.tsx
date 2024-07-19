@@ -1,9 +1,9 @@
 import { Separator } from "~/components/ui/separator";
-import { getEpisodes } from "~/server/queries/episode";
-import { Episodes } from "./_components/episodes";
+// import { getEpisodes } from "~/server/queries/episode";
+// import { Episodes } from "./_components/episodes";
 
 export default async function EpisodesPage() {
-  const { episodes } = await getEpisodes();
+  // const { episodes } = await getEpisodes();
 
   return (
     <div className="container max-w-3xl">
@@ -20,7 +20,7 @@ export default async function EpisodesPage() {
 
           <Separator className="my-8" />
 
-          <Episodes episodes={episodes} />
+          {/* <Episodes episodes={episodes} /> */}
         </div>
       </div>
     </div>

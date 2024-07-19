@@ -84,11 +84,20 @@ const config = {
             transform: "translateY(0)",
           },
         },
+        "audio-wave": {
+          "0%, 100%": {
+            height: "0.75rem",
+          },
+          "50%": {
+            height: "2.5rem",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-up": "fade-up 0.5s ease-out",
+        "audio-wave": "audio-wave 1s ease-in-out infinite",
       },
     },
   },

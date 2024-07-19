@@ -22,7 +22,12 @@ export const env = createEnv({
     UPLOADTHING_SECRET: z.string(),
     UPLOADTHING_APP_ID: z.string(),
 
+    // en
     DISCOVER_FEED_URL: z.string().url(),
+
+    // ru
+    NEWS_FEED_URL: z.string().url(),
+    FINANCE_FEED_URL: z.string().url(),
 
     OPENAI_API_KEY: z.string(),
 
@@ -58,6 +63,9 @@ export const env = createEnv({
     UPLOADTHING_APP_ID: process.env.UPLOADTHING_APP_ID,
 
     DISCOVER_FEED_URL: process.env.DISCOVER_FEED_URL,
+
+    NEWS_FEED_URL: process.env.NEWS_FEED_URL,
+    FINANCE_FEED_URL: process.env.FINANCE_FEED_URL,
 
     OPENAI_API_KEY: process.env.OPENAI_API_KEY,
 

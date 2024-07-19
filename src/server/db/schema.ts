@@ -12,7 +12,7 @@ import {
 } from "drizzle-orm/pg-core";
 import { type AdapterAccount } from "next-auth/adapters";
 
-import { episodeTypes } from "~/lib/constants";
+import { episodeLanguages } from "~/lib/constants";
 import { generateId } from "~/lib/utils";
 import type { PodcastSegment } from "~/types";
 
@@ -24,14 +24,14 @@ import type { PodcastSegment } from "~/types";
  */
 export const createTable = pgTableCreator((name) => `ai-podcast_${name}`);
 
-export const episodeTypeEnum = pgEnum("episode_type", episodeTypes);
+export const episodeLanguageEnum = pgEnum("episode_language", episodeLanguages);
 
 export const episodes = createTable("episode", {
   id: varchar("id", { length: 255 })
     .$defaultFn(() => generateId())
     .primaryKey(),
   title: varchar("title", { length: 60 }).notNull(),
-  episodeType: episodeTypeEnum("episode_type").notNull(),
+  episodeLanguage: episodeLanguageEnum("episode_language").notNull(),
   baseScript: json("base_script").$type<PodcastSegment[]>().notNull(),
   audio: varchar("audio", { length: 1023 }).notNull(),
   audioKey: varchar("audio_key", { length: 1023 }).notNull(),
@@ -39,33 +39,6 @@ export const episodes = createTable("episode", {
     .default(sql`CURRENT_TIMESTAMP`)
     .notNull(),
 });
-
-export const episodesRelations = relations(episodes, ({ many }) => ({
-  branches: many(branches),
-}));
-
-export const branches = createTable("branch", {
-  id: varchar("id", { length: 255 })
-    .$defaultFn(() => generateId())
-    .primaryKey(),
-  episodeId: varchar("episode_id")
-    .notNull()
-    .references(() => episodes.id),
-  title: varchar("title", { length: 60 }).notNull(),
-  branchScript: json("branch_script").$type<PodcastSegment[]>().notNull(),
-  audio: varchar("audio", { length: 1023 }).notNull(),
-  audioKey: varchar("audio_key", { length: 1023 }).notNull(),
-  createdAt: timestamp("created_at")
-    .default(sql`CURRENT_TIMESTAMP`)
-    .notNull(),
-});
-
-export const branchesRelations = relations(branches, ({ one }) => ({
-  episode: one(episodes, {
-    fields: [branches.episodeId],
-    references: [episodes.id],
-  }),
-}));
 
 // next auth tables
 
@@ -152,3 +125,8 @@ export const verificationTokens = createTable(
     compoundKey: primaryKey({ columns: [vt.identifier, vt.token] }),
   }),
 );
+
+// types
+
+export type Episode = typeof episodes.$inferSelect;
+export type NewEpisode = typeof episodes.$inferInsert;

@@ -1,10 +1,10 @@
-import { PaperPlaneIcon } from "@radix-ui/react-icons";
+// import { PaperPlaneIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 
 import { Icons } from "~/components/icons";
 import { ModeToggle } from "~/components/mode-toggle";
 import { buttonVariants } from "~/components/ui/button";
-import { Input } from "~/components/ui/input";
+// import { Input } from "~/components/ui/input";
 import { siteConfig } from "~/config/site";
 import { cn } from "~/lib/utils";
 

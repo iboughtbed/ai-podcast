@@ -1,17 +1,29 @@
-export const episodeTypes = ["book", "daily_news"] as const;
+export const episodeLanguages = ["ru", "en"] as const;
 
-export const hostsVoices: Record<string, string> = {
+export const languages = {
+  ru: "Русский",
+  en: "English",
+};
+
+// consider using cheaper model without 2x
+export const ruHostsVoices: Record<string, string> = {
+  dmitry: "kwajW3Xh5svCeKU5ky2S",
+  max: "2OdNfs9Z4GCMvoFiCavC",
+};
+
+export const enHostsVoices: Record<string, string> = {
   tyler: "iP95p4xoKVk53GoZ742B", // Chris
   narrator: "5Q0t7uMcjvnagumLfvZi", // Paul
 };
 
-export const GENERATE_SCRIPT_SYSTEM_PROMPT = `
+export const GENERATE_SCRIPT_SYSTEM_PROMPT_EN = `
 You are a podcast script generator specializing in the latest news.
 This podcast features discussions on the most recent news, with two hosts, Tyler Durden and Narrator, engaging in lively conversations.
 Generate a definitive, complete, and well-formatted podcast script based on the latest fetched news.
 The conversation should be engaging and reflect the dynamic interaction between the hosts.
 The response should be in JSON format.
-For example "[  
+For example "{
+script: [  
   {
     "name": "tyler",
     "text": "Elon Musk has really created some cool technologies."
@@ -20,10 +32,12 @@ For example "[
     "name": "narrator",
     "text": "Tyler, I mean yeah, but didn't he steal that idea?"
   }
-]"
+]
+}".
+The response has to be an array of objects - {script:[{ name: "tyler" | "narrator", text: string }, ...others]}
 `;
 
-export const GENERATE_BRANCHES_SYSTEM_PROMPT = `
+export const GENERATE_BRANCHES_SYSTEM_PROMPT_EN = `
 You are a podcast script evaluator that creates branches of stories based on the generated script provided on the latest news.
 This podcast features engaging discussions between two hosts, Tyler Durden and Narrator, who discuss the latest news.
 The goal is to explore multiple story branches from the provided script, ensuring each branch's theme is unique and not directly related to the main script's themes.
@@ -80,21 +94,25 @@ For example "[
 ]"
 `;
 
-export const GENERATE_SCRIPT_FOR_BOOK_SYSTEM_PROMPT = `
-You are a podcast script generator based on a book provided to you.
-This podcast features engaging discussions between two hosts, Tyler Durden and Narrator, who discuss the latest news.
-Generate a definitive, complete, and well-formatted podcast script based on the book.
-The response should be in JSON format.
-For example "[
-  {{
-    name: "tyler",
-    text: "The main hero really had a tragic childhood.",
-  }},
-  {{
-    name: "narrator",
-    text: "Tyler, I mean yeah, but it's still hard to ignore what he did.",
-  }},
-]"
-
-Book's content: {content}
+export const GENERATE_SCRIPT_SYSTEM_PROMPT_RU = `
+Вы генератор скриптов для подкастов, специализирующийся на последних новостях.
+В этом подкасте обсуждаются самые свежие новости, где два ведущих, Дмитрий и Макс, ведут живые беседы.
+Сгенерируйте определённый, полный и хорошо отформатированный скрипт для подкаста на основе последних новостей.
+Подкаст должен содержать речь открытия, где ведущий кратко объяснит, о чём будет подкаст, а также речь закрытия.
+Беседа должна быть увлекательной и отражать динамичное взаимодействие между ведущими. 
+Ведущие должны обсуждать детали новостей и не упускать важные аспекты и новости, а также отвечать на вопросы друг друга и вести беседу.
+Ответ должен быть в формате JSON.
+Например, "{
+script: [
+{
+    "name": "dmitry",
+    "text": "Илон Маск действительно создал крутые технологии."
+},
+{
+    "name": "max",
+    "text": "Дмитрий, ну да, но не украл ли он эти идеи?"
+}
+]
+}".
+Ответ должен быть массивом обьектов - {script: [{ name: "dmitry" | "max", text: string }, ...другие]}
 `;

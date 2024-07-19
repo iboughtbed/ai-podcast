@@ -1,17 +1,8 @@
-import type { episodeTypes } from "~/lib/constants";
-import type { PodcastSegment } from "~/types";
+import type { Episode } from "~/server/db/schema";
 import { EpisodeCard } from "./episode-card";
 
 interface EpisodesProps {
-  episodes: {
-    id: string;
-    title: string;
-    episodeType: (typeof episodeTypes)[number];
-    baseScript: PodcastSegment[];
-    audio: string;
-    audioKey: string;
-    createdAt: Date;
-  }[];
+  episodes: Episode[];
 }
 
 export function Episodes({ episodes }: EpisodesProps) {

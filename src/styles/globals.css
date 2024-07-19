@@ -58,103 +58,13 @@
   }
 }
 
+::selection {
+  background-color: rgb(71, 71, 71);
+  color: rgb(255, 255, 255);
+}
+
 @media (max-width: 640px) {
   .container {
     @apply px-4;
-  }
-}
-
-.grain {
-  pointer-events: none;
-  z-index: 9999;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  position: fixed;
-  top: 0%;
-  bottom: 0%;
-  left: 0%;
-  right: 0%;
-  overflow: hidden;
-}
-
-.grain-texture {
-  animation: 2s steps(1) infinite noise;
-  width: 300%;
-  height: 300%;
-  max-width: none;
-  background-image: url("/grain.png");
-  background-position: 50%;
-  background-size: 256px;
-  flex: none;
-  position: absolute;
-  top: -150%;
-  bottom: 0%;
-  left: -150%;
-  right: 0%;
-}
-
-@keyframes noise {
-  0%,
-  100% {
-    background-position: 0 0;
-  }
-
-  10% {
-    background-position: -5% -10%;
-  }
-
-  20% {
-    background-position: -15% 5%;
-  }
-
-  30% {
-    background-position: 7% -25%;
-  }
-
-  40% {
-    background-position: 20% 25%;
-  }
-
-  50% {
-    background-position: -25% 10%;
-  }
-
-  60% {
-    background-position: 15% 5%;
-  }
-
-  70% {
-    background-position: 0% 15%;
-  }
-
-  80% {
-    background-position: 25% 35%;
-  }
-
-  90% {
-    background-position: -10% 10%;
-  }
-}
-
-.animated-button {
-  @apply relative overflow-hidden;
-}
-
-.animated-button-bg {
-  @apply absolute h-[calc(2.5rem*8)] w-[calc(2.5rem*8)] scale-0 rounded-full bg-purple-600 opacity-0 transition-transform duration-700 contain-none;
-}
-
-.animated-button-text {
-  @apply z-[2] transition-colors duration-700;
-}
-
-.animated-button:hover {
-  .animated-button-bg {
-    @apply scale-100 opacity-100;
-  }
-
-  .animated-button-text {
-    @apply text-white;
   }
 }
