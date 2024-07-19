@@ -60,7 +60,7 @@ export function PodcastTabs() {
                 )}
               >
                 <iframe
-                  src="https://open.spotify.com/embed/show/3hrNivV4vsniRBO90ecaGa"
+                  src="https://open.spotify.com/embed/show/3hrNivV4vsniRBO90ecaGa?theme=0"
                   className="h-[250px] w-full rounded-[10px]"
                 ></iframe>
               </div>
@@ -73,7 +73,7 @@ export function PodcastTabs() {
                 )}
               >
                 <iframe
-                  src="https://embed.podcasts.apple.com/kz/podcast/parallax-podcast/id1757812144?theme=dark"
+                  src="https://embed.podcasts.apple.com/kz/podcast/parallax-podcast/id1757812144?theme=light"
                   allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
                   className="h-[450px] w-full overflow-hidden rounded-[10px]"
                   sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"

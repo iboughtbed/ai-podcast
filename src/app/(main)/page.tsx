@@ -1,7 +1,7 @@
 import { ChevronRightIcon } from "@radix-ui/react-icons";
+import Image from "next/image";
 import Link from "next/link";
 
-import Image from "next/image";
 import { Announcement } from "~/components/announcement";
 import { Icons } from "~/components/icons";
 import { buttonVariants } from "~/components/ui/button";
@@ -112,7 +112,9 @@ export default function HomePage() {
                 <ChevronRightIcon className="ml-1 size-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
               <Link
-                href="/episodes"
+                href="https://forms.gle/BR2uKfKJDB7syR3m9"
+                target="_blank"
+                rel="noreferrer"
                 className={cn(
                   buttonVariants({ variant: "outline" }),
                   "max-md:w-full",
