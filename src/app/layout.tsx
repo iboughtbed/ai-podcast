@@ -5,7 +5,7 @@ import type { Metadata, Viewport } from "next";
 
 import { Analytics } from "~/components/analytics";
 import { ThemeProvider } from "~/components/providers";
-import { SmoothScroll } from "~/components/smooth-scroll";
+// import { SmoothScroll } from "~/components/smooth-scroll";
 import { TailwindIndicator } from "~/components/tailwind-indicator";
 import { Toaster as Sonner } from "~/components/ui/sonner";
 import { siteConfig } from "~/config/site";
@@ -85,7 +85,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           >
             <div vaul-drawer-wrapper="">{children}</div>
             <Analytics />
-            <SmoothScroll />
+            {/* <SmoothScroll /> */}
             <TailwindIndicator />
             <Sonner richColors />
           </ThemeProvider>
