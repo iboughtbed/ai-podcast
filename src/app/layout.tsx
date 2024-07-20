@@ -3,6 +3,7 @@ import "~/styles/globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata, Viewport } from "next";
 
+import { Analytics } from "~/components/analytics";
 import { ThemeProvider } from "~/components/providers";
 import { SmoothScroll } from "~/components/smooth-scroll";
 import { TailwindIndicator } from "~/components/tailwind-indicator";
@@ -83,6 +84,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             disableTransitionOnChange
           >
             <div vaul-drawer-wrapper="">{children}</div>
+            <Analytics />
             <SmoothScroll />
             <TailwindIndicator />
             <Sonner richColors />
