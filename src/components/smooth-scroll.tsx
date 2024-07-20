@@ -1,19 +1,19 @@
-// "use client";
+"use client";
 
-// import Lenis from "@studio-freight/lenis";
-// import * as React from "react";
+import Lenis from "lenis";
+import * as React from "react";
 
-// export function SmoothScroll() {
-//   React.useEffect(() => {
-//     const lenis = new Lenis();
+export function SmoothScroll() {
+  React.useEffect(() => {
+    const lenis = new Lenis();
 
-//     function raf(time: number) {
-//       lenis.raf(time);
-//       requestAnimationFrame(raf);
-//     }
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
 
-//     requestAnimationFrame(raf);
-//   }, []);
+    requestAnimationFrame(raf);
+  }, []);
 
-//   return null;
-// }
+  return null;
+}

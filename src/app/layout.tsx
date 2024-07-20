@@ -1,8 +1,10 @@
 import "~/styles/globals.css";
 
+import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata, Viewport } from "next";
 
 import { ThemeProvider } from "~/components/providers";
+import { SmoothScroll } from "~/components/smooth-scroll";
 import { TailwindIndicator } from "~/components/tailwind-indicator";
 import { Toaster as Sonner } from "~/components/ui/sonner";
 import { siteConfig } from "~/config/site";
@@ -65,26 +67,28 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={cn(
-          "min-h-screen overflow-x-hidden font-sans antialiased",
-          fontSans.variable,
-          fontMono.variable,
-        )}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
+    <ClerkProvider>
+      <html lang="en" suppressHydrationWarning>
+        <body
+          className={cn(
+            "min-h-screen overflow-x-hidden font-sans antialiased",
+            fontSans.variable,
+            fontMono.variable,
+          )}
         >
-          <div vaul-drawer-wrapper="">{children}</div>
-          {/* <SmoothScroll /> */}
-          <TailwindIndicator />
-          <Sonner richColors />
-        </ThemeProvider>
-      </body>
-    </html>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <div vaul-drawer-wrapper="">{children}</div>
+            <SmoothScroll />
+            <TailwindIndicator />
+            <Sonner richColors />
+          </ThemeProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
