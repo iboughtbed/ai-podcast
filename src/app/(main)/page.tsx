@@ -197,7 +197,7 @@ export default function HomePage() {
                       <span className="w-full flex-none font-medium text-white">
                         Daulet Issatayev
                       </span>
-                      <span className="mt-0.5 text-white/80">CTO</span>
+                      <span className="mt-0.5 text-white/80">Co-Founder</span>
                       <span className="mt-0.5 flex items-center text-white/80">
                         <Icons.slash />
                         Garderob
