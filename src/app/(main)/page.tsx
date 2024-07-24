@@ -79,7 +79,7 @@ export default function HomePage() {
               Trusted by podcasters, developers and directors
             </p>
             <p className="mx-auto mt-4 max-w-xl text-base/6 text-gray-600">
-              Join the Parallax&apos;s fast growind community
+              Join the Parallax&apos;s fast growing community
             </p>
           </div>
 
@@ -247,20 +247,20 @@ export default function HomePage() {
                 <div className="flex w-full flex-col items-start p-8">
                   <div className="mb-auto text-base/6 text-gray-950">
                     <p className="relative before:absolute before:right-full before:top-0 before:content-['“'] after:content-['”']">
-                      {testimonials["jarasar-daulet"]}
+                      {testimonials["bauyrzhan-tursynbek"]}
                     </p>
                   </div>
                   <div className="mt-6 flex w-full items-center justify-between">
                     <div className="flex flex-wrap text-sm">
                       <span className="w-full flex-none font-medium text-gray-950">
-                        Jarasar Daulet
+                        Bauyrzhan Tursynbek
                       </span>
                       <span className="mt-0.5 text-gray-600">
                         Frontend Engineer
                       </span>
                       <span className="mt-0.5 flex items-center text-gray-600">
                         <Icons.slash />
-                        Zimran
+                        ioka
                       </span>
                     </div>
                     <div className="bg-black/2.5 relative flex-none overflow-hidden rounded-lg">
