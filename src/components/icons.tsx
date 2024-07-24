@@ -208,4 +208,19 @@ export const Icons = {
       <path d="M22 2 11 13" />
     </svg>
   ),
+  slash: (props: IconProps) => (
+    <svg
+      viewBox="0 0 10 10"
+      fill="currentColor"
+      className="mx-1 h-2.5 w-2.5 flex-none stroke-current"
+      {...props}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.5"
+        d="m6.25 1.75-2.5 6.5"
+      ></path>
+    </svg>
+  ),
 };

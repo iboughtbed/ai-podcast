@@ -68,3 +68,83 @@
     @apply px-4;
   }
 }
+
+.testimonials-line-top {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 1'%3E%3Crect width='1' height='1' fill='%23212126'/%3E%3C/svg%3E");
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    white 4rem,
+    white calc(100% - 4rem),
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    white 4rem,
+    white calc(100% - 4rem),
+    transparent
+  );
+  margin-left: -4rem;
+  margin-right: -4rem;
+}
+
+.testimonials-line-right {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 4'%3E%3Crect width='1' height='1' fill='%23212126'/%3E%3C/svg%3E");
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    white 4rem,
+    white calc(100% - 4rem),
+    transparent
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    white 4rem,
+    white calc(100% - 4rem),
+    transparent
+  );
+  margin-top: -4rem;
+  margin-bottom: -4rem;
+}
+
+.testimonials-line-bottom {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 1'%3E%3Crect width='1' height='1' fill='%23212126'/%3E%3C/svg%3E");
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    white 4rem,
+    white calc(100% - 4rem),
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    white 4rem,
+    white calc(100% - 4rem),
+    transparent
+  );
+  margin-left: -4rem;
+  margin-right: -4rem;
+}
+
+.testimonials-line-left {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 4'%3E%3Crect width='1' height='1' fill='%23212126'/%3E%3C/svg%3E");
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    white 4rem,
+    white calc(100% - 4rem),
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    white 4rem,
+    white calc(100% - 4rem),
+    transparent
+  );
+  margin-left: -4rem;
+  margin-right: -4rem;
+}

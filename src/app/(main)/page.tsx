@@ -6,6 +6,7 @@ import { Announcement } from "~/components/announcement";
 import { Icons } from "~/components/icons";
 import { buttonVariants } from "~/components/ui/button";
 import { Separator } from "~/components/ui/separator";
+import { testimonials } from "~/config/testimonials";
 import { cn } from "~/lib/utils";
 import { Benefits } from "./_components/benefits";
 import { PodcastTabs } from "./_components/podcast-tabs";
@@ -68,6 +69,210 @@ export default function HomePage() {
         <Separator className="mt-16" />
 
         <Benefits />
+
+        <div className="mx-auto mb-20 w-full max-w-5xl pb-10 pt-20">
+          <div className="text-center">
+            <h2 className="text-sm font-medium text-violet-500">
+              What people are saying
+            </h2>
+            <p className="mx-auto mt-4 max-w-md text-balance text-3xl font-semibold tracking-[-0.015rem] text-gray-950">
+              Trusted by podcasters, developers and directors
+            </p>
+            <p className="mx-auto mt-4 max-w-xl text-base/6 text-gray-600">
+              Join the Parallax&apos;s fast growind community
+            </p>
+          </div>
+
+          <div className="relative mt-16 w-full">
+            <div className="testimonials-line-top absolute inset-x-0 -top-px h-px opacity-30 max-md:hidden"></div>
+            <div className="testimonials-line-right absolute inset-y-0 -right-px w-px opacity-30 max-md:hidden"></div>
+            <div className="testimonials-line-bottom absolute inset-x-0 -bottom-px h-px opacity-30 max-md:hidden"></div>
+            <div className="testimonials-line-right absolute inset-y-0 -left-px w-px opacity-30 max-md:hidden"></div>
+
+            <div className="isolate grid w-full grid-cols-1 gap-2 md:grid-cols-2">
+              <div className="z-10 row-span-2 flex rounded-xl shadow-2xl ring-1 ring-gray-950/5">
+                <div className="flex w-full flex-col items-start p-8">
+                  <Image
+                    src="/images/nfactorial.png"
+                    alt="garderob"
+                    className="mb-10 h-10 w-auto"
+                    height="200"
+                    width="200"
+                  />
+
+                  <div className="font-book mt-auto text-xl text-gray-950">
+                    <p className="relative before:absolute before:right-full before:top-0 before:content-['“'] after:content-['”']">
+                      {testimonials["daniyar-akhmetzhanov"]}
+                    </p>
+                  </div>
+                  <div className="mt-6 flex w-full items-center justify-between">
+                    <div className="flex flex-wrap text-sm">
+                      <span className="w-full flex-none font-medium text-gray-950">
+                        Daniyar Akhmetzhanov
+                      </span>
+                      <span className="mt-0.5 text-gray-600">Producer</span>
+                      <span className="mt-0.5 flex items-center text-gray-600">
+                        <Icons.slash />
+                        nFactorial Podcast
+                      </span>
+                    </div>
+                    <div className="bg-black/2.5 relative flex-none overflow-hidden rounded-lg">
+                      <Image
+                        src="/images/daniyar-akhmetzhanov.png"
+                        alt=""
+                        className="size-12"
+                        width="320"
+                        height="320"
+                      />
+                      <div className="absolute inset-0 rounded-lg ring-1 ring-inset ring-black/10"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="flex rounded-xl bg-gray-50 shadow ring-1 ring-gray-950/5">
+                <div className="flex w-full flex-col items-start p-8">
+                  <div className="mb-auto text-base/6 text-gray-950">
+                    <p className="relative before:absolute before:right-full before:top-0 before:content-['“'] after:content-['”']">
+                      {testimonials["bahauddin-toleu"]}
+                    </p>
+                  </div>
+                  <div className="mt-6 flex w-full items-center justify-between">
+                    <div className="flex flex-wrap text-sm">
+                      <span className="w-full flex-none font-medium text-gray-950">
+                        Bahauddin Toleu
+                      </span>
+                      <span className="mt-0.5 text-gray-600">Mentor</span>
+                      <span className="mt-0.5 flex items-center text-gray-600">
+                        <Icons.slash />
+                        nFactorial Incubator
+                      </span>
+                    </div>
+                    <div className="bg-black/2.5 relative flex-none overflow-hidden rounded-lg">
+                      <Image src="" alt="" />
+                      <div className="absolute inset-0 rounded-lg ring-1 ring-inset ring-black/10"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="flex rounded-xl bg-gray-50 shadow ring-1 ring-gray-950/5">
+                <div className="flex w-full flex-col items-start p-8">
+                  <div className="mb-auto text-base/6 text-gray-950">
+                    <p className="relative before:absolute before:right-full before:top-0 before:content-['“'] after:content-['”']">
+                      {testimonials["jarasar-daulet"]}
+                    </p>
+                  </div>
+                  <div className="mt-6 flex w-full items-center justify-between">
+                    <div className="flex flex-wrap text-sm">
+                      <span className="w-full flex-none font-medium text-gray-950">
+                        Jarasar Daulet
+                      </span>
+                      <span className="mt-0.5 text-gray-600">
+                        Frontend Engineer
+                      </span>
+                      <span className="mt-0.5 flex items-center text-gray-600">
+                        <Icons.slash />
+                        Zimran
+                      </span>
+                    </div>
+                    <div className="bg-black/2.5 relative flex-none overflow-hidden rounded-lg">
+                      <Image src="" alt="" />
+                      <div className="absolute inset-0 rounded-lg ring-1 ring-inset ring-black/10"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="z-10 row-span-2 flex rounded-xl bg-[#D33F57] shadow-2xl ring-1 ring-[#c63a52] md:col-start-2 md:row-start-3">
+                <div className="flex w-full flex-col items-start p-8">
+                  <span className="mb-10 text-lg font-bold text-white">
+                    Garderob
+                  </span>
+
+                  <div className="font-book mt-auto text-xl text-gray-950">
+                    <p className="relative text-white before:absolute before:right-full before:top-0 before:content-['“'] after:content-['”']">
+                      {testimonials["daulet-issatayev"]}
+                    </p>
+                  </div>
+                  <div className="mt-6 flex w-full items-center justify-between">
+                    <div className="flex flex-wrap text-sm">
+                      <span className="w-full flex-none font-medium text-white">
+                        Daulet Issatayev
+                      </span>
+                      <span className="mt-0.5 text-white/80">CTO</span>
+                      <span className="mt-0.5 flex items-center text-white/80">
+                        <Icons.slash />
+                        Garderob
+                      </span>
+                    </div>
+                    <div className="bg-black/2.5 relative flex-none overflow-hidden rounded-lg">
+                      <Image
+                        src="/images/daulet-issatayev.png"
+                        alt=""
+                        className="size-12"
+                        width="320"
+                        height="320"
+                      />
+                      <div className="absolute inset-0 rounded-lg ring-1 ring-inset ring-black/10"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="flex rounded-xl bg-gray-50 shadow ring-1 ring-gray-950/5">
+                <div className="flex w-full flex-col items-start p-8">
+                  <div className="mb-auto text-base/6 text-gray-950">
+                    <p className="relative before:absolute before:right-full before:top-0 before:content-['“'] after:content-['”']">
+                      {testimonials["alibek-seitov"]}
+                    </p>
+                  </div>
+                  <div className="mt-6 flex w-full items-center justify-between">
+                    <div className="flex flex-wrap text-sm">
+                      <span className="w-full flex-none font-medium text-gray-950">
+                        Alibek Seitov
+                      </span>
+                      <span className="mt-0.5 text-gray-600">
+                        Software Engineer
+                      </span>
+                      <span className="mt-0.5 flex items-center text-gray-600">
+                        <Icons.slash />
+                        nFactorial
+                      </span>
+                    </div>
+                    <div className="bg-black/2.5 relative flex-none overflow-hidden rounded-lg">
+                      <Image src="" alt="" />
+                      <div className="absolute inset-0 rounded-lg ring-1 ring-inset ring-black/10"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="flex rounded-xl bg-gray-50 shadow ring-1 ring-gray-950/5">
+                <div className="flex w-full flex-col items-start p-8">
+                  <div className="mb-auto text-base/6 text-gray-950">
+                    <p className="relative before:absolute before:right-full before:top-0 before:content-['“'] after:content-['”']">
+                      {testimonials["jarasar-daulet"]}
+                    </p>
+                  </div>
+                  <div className="mt-6 flex w-full items-center justify-between">
+                    <div className="flex flex-wrap text-sm">
+                      <span className="w-full flex-none font-medium text-gray-950">
+                        Jarasar Daulet
+                      </span>
+                      <span className="mt-0.5 text-gray-600">
+                        Frontend Engineer
+                      </span>
+                      <span className="mt-0.5 flex items-center text-gray-600">
+                        <Icons.slash />
+                        Zimran
+                      </span>
+                    </div>
+                    <div className="bg-black/2.5 relative flex-none overflow-hidden rounded-lg">
+                      <Image src="" alt="" />
+                      <div className="absolute inset-0 rounded-lg ring-1 ring-inset ring-black/10"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <div className="relative mx-auto mb-20 w-full max-w-5xl pb-10 pt-20 md:mb-40 md:mt-20 md:pt-40">
           <div className="pointer-events-none absolute right-0 top-1/2 hidden h-full w-1/2 -translate-y-[40%] md:block">
