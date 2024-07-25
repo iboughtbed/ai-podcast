@@ -1,6 +1,6 @@
 export const testimonials = {
   "daulet-issatayev":
-    "I spend around 2 hours each day listening to podcasts, but finding decent content on my preferred topics was always difficult. This AI-generated podcast platform has been a revelation. The sophisticated technology provides personalized recommendations that align perfectly with my interests. It's a godsend for anyone who loves podcasts and wants to discover great content effortlessly.",
+    "Я трачу несколько часов в день на подкасты, но раньше было сложно найти что-то подходящее. Теперь же нахожу контент, идеально подстроенный под мои вкусы.",
   "bahauddin-toleu":
     "Подкасты очень реалистичные, а также заставляют задуматься о будущем ИИ индустрии.",
   "jarasar-daulet":
