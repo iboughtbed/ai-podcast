@@ -39,7 +39,7 @@ export default function HomePage() {
                 Listen now
               </Link>
               <Link
-                href="/"
+                href="/create"
                 className={cn(buttonVariants({ variant: "outline" }))}
               >
                 Create now
@@ -148,7 +148,6 @@ export default function HomePage() {
                       </span>
                     </div>
                     <div className="bg-black/2.5 relative flex-none overflow-hidden rounded-lg">
-                      <Image src="" alt="" />
                       <div className="absolute inset-0 rounded-lg ring-1 ring-inset ring-black/10"></div>
                     </div>
                   </div>
@@ -175,7 +174,6 @@ export default function HomePage() {
                       </span>
                     </div>
                     <div className="bg-black/2.5 relative flex-none overflow-hidden rounded-lg">
-                      <Image src="" alt="" />
                       <div className="absolute inset-0 rounded-lg ring-1 ring-inset ring-black/10"></div>
                     </div>
                   </div>
@@ -237,7 +235,6 @@ export default function HomePage() {
                       </span>
                     </div>
                     <div className="bg-black/2.5 relative flex-none overflow-hidden rounded-lg">
-                      <Image src="" alt="" />
                       <div className="absolute inset-0 rounded-lg ring-1 ring-inset ring-black/10"></div>
                     </div>
                   </div>
@@ -264,7 +261,6 @@ export default function HomePage() {
                       </span>
                     </div>
                     <div className="bg-black/2.5 relative flex-none overflow-hidden rounded-lg">
-                      <Image src="" alt="" />
                       <div className="absolute inset-0 rounded-lg ring-1 ring-inset ring-black/10"></div>
                     </div>
                   </div>

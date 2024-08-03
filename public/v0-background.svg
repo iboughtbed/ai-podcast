@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1283" height="610" viewBox="0 0 1283 610" fill="none">
+  <defs>
+    <radialGradient id="pulseGradient">
+      <stop offset="10%" stop-color="#58F0D4"/>
+      <stop offset="95%" stop-color="#58F0D400"/>
+    </radialGradient>
+    <linearGradient id="fadeGradient" gradientTransform="rotate(90)">
+      <stop offset="0%" stop-color="#888888"/>
+      <stop offset="50%" stop-color="white"/>
+      <stop offset="100%" stop-color="#888888"/>
+    </linearGradient>
+    <mask id="vignette">
+      <rect x="0" y="0" width="1283" height="610" fill="url('#fadeGradient')"/>
+    </mask>
+    <mask id="v-clip">
+      <path vector-effect="non-scaling-stroke" d="M184.5 114.5H2C154.667 262.5 458 556.385 494 591C530 625.615 612.5 613 612.5 541.5V114.5H485.5V406L184.5 114.5Z" stroke="white" class="pulse"/>
+    </mask>
+    <mask id="o-clip">
+      <path vector-effect="non-scaling-stroke" d="M653.5 114.5H1075L774 410V1C774 1 954.5 1 1075 1C1195.5 1 1282 114.5 1282 207C1282 299.5 1282 495.5 1282 495.5H868.5L1162 207V609.5C1162 609.5 998 609.5 868.5 609.5C739 609.5 653.5 487 653.5 410C653.5 333 653.5 114.5 653.5 114.5Z" stroke="white" class="pulse"/>
+    </mask>
+  </defs>
+  <style>
+    .vPath {
+      offset-path: path(
+        'M184.5 114.5H2C154.667 262.5 458 556.385 494 591C530 625.615 612.5 613 612.5 541.5V114.5H485.5V406L184.5 114.5Z'
+      );
+      animation:
+        followpath 11s linear infinite,
+        pulse 7s linear infinite;
+      opacity: 0;
+    }
+
+    .oPath {
+      offset-path: path(
+        'M653.5 114.5H1075L774 410V1C774 1 954.5 1 1075 1C1195.5 1 1282 114.5 1282 207C1282 299.5 1282 495.5 1282 495.5H868.5L1162 207V609.5C1162 609.5 998 609.5 868.5 609.5C739 609.5 653.5 487 653.5 410C653.5 333 653.5 114.5 653.5 114.5Z'
+      );
+      animation:
+        followpath 22s linear infinite,
+        pulse 7s linear infinite;
+      animation-delay: 3.5s;
+      opacity: 0;
+    }
+
+    .dashed {
+      stroke-dasharray: 3;
+      stroke-width: 1;
+    }
+    .pulse {
+      stroke-width: 3;
+    }
+
+    @-moz-document url-prefix() {
+      .dashed {
+        stroke-dasharray: 6;
+        stroke-width: 2;
+      }
+      .pulse {
+        stroke-width: 6;
+      }
+    }
+
+    @media (prefers-reduced-motion) {
+      .vPath { opacity: 0; }
+      .oPath { opacity: 0; }
+    }
+
+    @keyframes followpath {
+      to {
+        offset-distance: 100%;
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        opacity: 0;
+      }
+      40% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      60% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+  </style>
+  <g mask="url(#vignette)">
+    <g mask="url(#v-clip)">
+      <circle r="100" fill="url('#pulseGradient')" class="vPath"/>
+    </g>
+    <g mask="url(#o-clip)">
+      <circle r="100" fill="url('#pulseGradient')" class="oPath"/>
+    </g>
+    <path vector-effect="non-scaling-stroke" d="M184.5 114.5H2C154.667 262.5 458 556.385 494 591C530 625.615 612.5 613 612.5 541.5V114.5H485.5V406L184.5 114.5Z" stroke="#DDDDDD" class="dashed"/>
+    <path vector-effect="non-scaling-stroke" d="M653.5 114.5H1075L774 410V1C774 1 954.5 1 1075 1C1195.5 1 1282 114.5 1282 207C1282 299.5 1282 495.5 1282 495.5H868.5L1162 207V609.5C1162 609.5 998 609.5 868.5 609.5C739 609.5 653.5 487 653.5 410C653.5 333 653.5 114.5 653.5 114.5Z" stroke="#DDDDDD" class="dashed"/>
+  </g>
+</svg>

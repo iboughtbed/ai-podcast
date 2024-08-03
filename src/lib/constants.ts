@@ -8,7 +8,7 @@ export const languages = {
 // consider using cheaper model without 2x
 export const ruHostsVoices: Record<string, string> = {
   dmitry: "kwajW3Xh5svCeKU5ky2S",
-  max: "2OdNfs9Z4GCMvoFiCavC",
+  max: "blxHPCXhpXOsc7mCKk0P",
 };
 
 export const enHostsVoices: Record<string, string> = {

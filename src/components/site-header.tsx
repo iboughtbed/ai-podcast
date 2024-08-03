@@ -1,25 +1,15 @@
-import { DashboardIcon, ExitIcon, GearIcon } from "@radix-ui/react-icons";
-import type { Session } from "next-auth";
-import Image from "next/image";
+import { UserButton } from "@clerk/nextjs";
+import type { User } from "@clerk/nextjs/server";
 import Link from "next/link";
 
 import { Icons } from "~/components/icons";
 import { MobileNav } from "~/components/mobile-nav";
-import { Button, buttonVariants } from "~/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "~/components/ui/dropdown-menu";
+import { buttonVariants } from "~/components/ui/button";
 import { siteConfig } from "~/config/site";
 import { cn } from "~/lib/utils";
 
 interface SiteHeaderProps {
-  user?: Session["user"];
+  user: User | null;
 }
 
 export function SiteHeader({ user }: SiteHeaderProps) {
@@ -65,59 +55,7 @@ export function SiteHeader({ user }: SiteHeaderProps) {
             Email
           </Link>
           {user ? (
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button
-                  variant="secondary"
-                  className="relative h-8 w-8 rounded-full p-0"
-                >
-                  <Image
-                    src="/avatars/kanye.webp"
-                    alt="avatar"
-                    className="rounded-full"
-                    width={40}
-                    height={40}
-                  />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-56" align="end" forceMount>
-                <DropdownMenuLabel className="font-normal">
-                  <div className="flex flex-col space-y-1">
-                    <p className="text-sm font-medium leading-none">
-                      {user.name}
-                    </p>
-                    <p className="text-xs leading-none text-muted-foreground">
-                      {user.email}
-                    </p>
-                  </div>
-                </DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuGroup>
-                  <DropdownMenuItem asChild>
-                    <Link href="/dashboard">
-                      <DashboardIcon
-                        className="mr-2 h-4 w-4"
-                        aria-hidden="true"
-                      />
-                      Dashboard
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link href="/dashboard/account">
-                      <GearIcon className="mr-2 h-4 w-4" aria-hidden="true" />
-                      Settings
-                    </Link>
-                  </DropdownMenuItem>
-                </DropdownMenuGroup>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem asChild>
-                  <Link href="/signout">
-                    <ExitIcon className="mr-2 h-4 w-4" aria-hidden="true" />
-                    Log out
-                  </Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <UserButton />
           ) : (
             <Link
               href="/signin"
