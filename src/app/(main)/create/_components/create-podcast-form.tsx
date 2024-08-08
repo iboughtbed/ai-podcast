@@ -1,34 +1,38 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import * as React from "react";
 import { toast } from "sonner";
 
 import { Icons } from "~/components/icons";
 import { cn } from "~/lib/utils";
-import { createPodcast } from "~/server/actions/podcast";
 
 export function CreatePodcastForm() {
-  const router = useRouter();
+  // const router = useRouter();
   const [value, setValue] = React.useState("");
-  const [isLoading, setIsLoading] = React.useState(false);
+  const [
+    isLoading,
+    // setIsLoading
+  ] = React.useState(false);
 
   const textareaRef = React.useRef<HTMLTextAreaElement>(null);
 
   async function onSubmit() {
-    try {
-      setIsLoading(true);
+    return toast.info("Подкасты доступны для лимитированных пользователей.");
 
-      const { data } = await createPodcast({ prompt: value });
-      if (!data) {
-        return toast.error("Error creating the podcast, please try again");
-      }
+    // try {
+    //   setIsLoading(true);
 
-      router.push(`/p/${data.id}`);
-    } catch (err) {
-      toast.error("Something went wrong");
-      setIsLoading(false);
-    }
+    //   const { data } = await createPodcast({ prompt: value });
+    //   if (!data) {
+    //     return toast.error("Error creating the podcast, please try again");
+    //   }
+
+    //   router.push(`/p/${data.id}`);
+    // } catch (err) {
+    //   toast.error("Something went wrong");
+    //   setIsLoading(false);
+    // }
   }
 
   async function onKeyDown(e: React.KeyboardEvent<HTMLTextAreaElement>) {

@@ -35,7 +35,7 @@ export default function HomePage() {
               className="mt-6 flex animate-fade-up items-center gap-2"
               style={{ animationDelay: "0.40s", animationFillMode: "both" }}
             >
-              <Link href="/episodes" className={cn(buttonVariants())}>
+              <Link href="#episodes" className={cn(buttonVariants())}>
                 Listen now
               </Link>
               <Link

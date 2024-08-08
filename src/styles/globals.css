@@ -58,6 +58,10 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 ::selection {
   background-color: rgb(71, 71, 71);
   color: rgb(255, 255, 255);

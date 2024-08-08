@@ -12,17 +12,17 @@ export const siteConfig = {
   description: "Daily Interactive AI Podcast",
   links,
   mainNav: [
-    { title: "Episodes", href: "/episodes" },
-    { title: "Contact", href: "/contact" },
-    { title: "About", href: "/about" },
+    { title: "Episodes", href: "/#episodes" },
+    { title: "Contact", href: "/" },
+    { title: "About", href: "/" },
   ] satisfies MainNavItem[],
   footerNav: [
     {
       title: "Help",
       items: [
-        { title: "Contact", href: "/contact", external: false },
-        { title: "Terms", href: "/terms", external: false },
-        { title: "Privacy", href: "/privacy", external: false },
+        { title: "Contact", href: "#", external: false },
+        { title: "Terms", href: "#", external: false },
+        { title: "Privacy", href: "#", external: false },
       ],
     },
     {
@@ -52,8 +52,8 @@ export const siteConfig = {
     {
       title: "Company",
       items: [
-        { title: "About", href: "/about", external: false },
-        { title: "Blog", href: "/blog", external: false },
+        { title: "About", href: "#", external: false },
+        { title: "Blog", href: "#", external: false },
       ],
     },
   ] satisfies FooterItem[],

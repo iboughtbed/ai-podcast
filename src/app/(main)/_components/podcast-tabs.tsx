@@ -21,6 +21,7 @@ export function PodcastTabs() {
     <div
       className="relative mb-4 animate-fade-up pb-10 pt-16"
       style={{ animationDelay: "0.50s", animationFillMode: "both" }}
+      id="episodes"
     >
       <div className="pointer-events-none absolute left-[-100px] top-[-10%] hidden select-none xl:block">
         <Image
